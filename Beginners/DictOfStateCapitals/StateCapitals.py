@@ -76,25 +76,31 @@ STATES_CAPITALS = {
 
 
 def capital_of_Idaho():
-    # Your code here
-    pass
+    print(STATES_CAPITALS['Idaho'])
 
 def all_states():
-    # Your code here
-    pass
+    return STATES_CAPITALS.keys()
 
 def all_capitals():
-    # Your code here
-    pass
+    return STATES_CAPITALS.values()
 
 def states_capitals_string():
-    # Your code here
-    pass
+    li = []
+    for s in sorted(STATES_CAPITALS.keys()):
+        li.append("{} -> {}".format(s, STATES_CAPITALS[s]))
+
+    return ",".join(li)
 
 
 
 def get_state(capital):
-    pass
+
+    for k, v in STATES_CAPITALS.items():
+        if v == capital:
+            return k
+    raise KeyError('%s not found' % capital)
+
+
 
 
 
