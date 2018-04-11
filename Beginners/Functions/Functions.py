@@ -37,23 +37,27 @@ import pytest
 
 
 def _filter(fn, iterable):
-    # Your code here
-    pass
+
+    if fn is None:
+        return [v for v in iterable if v]
+    return [v for v in iterable if fn(v)]
+
 
 
 def _map(fn, iterable):
-    # Your code here
-    pass
+    if fn is None:
+        return [v for v in iterable if v]
+    return [fn(it) for it in iterable]
 
 
 def test_filter():
     seq = [1, -2, 3, -4]
-    assert(filter(lambda x: x > 0, seq) == _filter(lambda x: x > 0, seq))
+    assert(list(filter(lambda x: x > 0, seq)) == _filter(lambda x: x > 0, seq))
 
 
 def test_map():
     seq = 'abcdef'
-    assert(map(lambda x: x.upper(), seq) == _map(lambda x: x.upper(), seq))
+    assert(list(map(lambda x: x.upper(), seq)) == _map(lambda x: x.upper(), seq))
 
 
 def main():

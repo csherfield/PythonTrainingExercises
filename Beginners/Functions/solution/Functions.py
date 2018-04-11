@@ -48,12 +48,12 @@ def _map(fn, iterable):
 
 def test_filter():
     seq = [1, -2, 3, -4]
-    assert(filter(lambda x: x > 0, seq) == _filter(lambda x: x > 0, seq))
+    assert(list(filter(lambda x: x > 0, seq)) == _filter(lambda x: x > 0, seq))
 
 
 def test_map():
     seq = 'abcdef'
-    assert(map(lambda x: x.upper(), seq) == _map(lambda x: x.upper(), seq))
+    assert(list(map(lambda x: x.upper(), seq)) == _map(lambda x: x.upper(), seq))
 
 
 def main():
