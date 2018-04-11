@@ -18,15 +18,28 @@ Created on 3 Nov 2015
 import pytest
 
 def no_duplicates(a_string):
-    pass
+    return ''.join(s for s in sorted(set(a_string)))
+
 
 
 def reversed_words(a_string):
-    pass
+    t = a_string.split()
+    t.reverse()
+    return t
+
 
 
 def four_char_strings(a_string):
-    pass
+    i = 0
+    t = list(a_string)
+    li = []
+    while i < len(t):
+        li.append(t[i:i + 4])
+        i += 4
+
+    return [''.join(s for s in j) for j in li]
+
+
 
 
 def test_no_duplicates():
@@ -49,5 +62,10 @@ def main():
 
 
 if __name__ == '__main__':
+    s = 'monty pythons flying circus'
+    print(no_duplicates(s))
     main()
-    
+
+
+
+
